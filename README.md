@@ -30,6 +30,7 @@ You notice that the folder `./shared` on the host is synced with `/vagrant` on t
 
 We can now start our first nix shell. 
 For this we describe our nix shell configuration on the host: Create `shell.nix` in `./shared` with the following configuration:
+
 ```nix
 # This imports the nix package collection,
 # so we can access the `pkgs` and `stdenv` variables
@@ -49,16 +50,17 @@ stdenv.mkDerivation {
 ```
 
 On the virtual NixOS machine we can now enter this nix shell with:
+
 * change to the shared directory: `cd /vagrant`
 * instantiate the nix shell: `nix-shell`
 
-We are now working in the nix environment described by `shell.nix`. Consequently, we have access to:
-`htop`
-or `cmake --version`
+We are now working in the nix environment described by `shell.nix`. Consequently, we now can use:
+* `htop` 
+* `cmake --version`
 
 Use `exit` to leave that environment.
 
-### Make changes on the NixOS configuration
+### Make changes to the NixOS configuration
 
 We can simply apply changes to descriptive configuration of NixOS running. Just make changes to the `configuration.nix` in the `./config` folder and the run `vagrant provision` to update the running virtual machine.
 
